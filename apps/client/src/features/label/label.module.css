@@ -47,8 +47,7 @@
   background: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.12));
 }
 
-.addBtn {
-  appearance: none;
+.addInputTarget {
   border: 1px dashed
     light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-3));
   background: transparent;
@@ -62,14 +61,15 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
+  cursor: text;
   transition:
     background 100ms ease,
     border-color 100ms ease,
     color 100ms ease;
 }
 
-.addBtn:hover {
+.addInputTarget:hover,
+.addInputTarget:focus-within {
   background: light-dark(rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.04));
   color: var(--mantine-color-text);
   border-color: light-dark(
@@ -78,7 +78,7 @@
   );
 }
 
-.addBtnOpen {
+.addInputTargetOpen {
   background: var(--mantine-color-body);
   border-style: solid;
   border-color: light-dark(
@@ -88,31 +88,34 @@
   color: var(--mantine-color-text);
 }
 
+.addInputIcon {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.addInputTarget input {
+  width: 96px;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  outline: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.addInputTarget input::placeholder {
+  color: currentColor;
+  opacity: 1;
+}
+
 .popover {
   width: 240px;
   padding: 0;
   overflow: hidden;
-}
-
-.popoverSearch {
-  padding: 8px 8px 4px;
-  border-bottom: 1px solid
-    light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
-}
-
-.popoverSearch input {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  font-size: 13px;
-  padding: 4px 4px;
-  color: var(--mantine-color-text);
-  outline: none;
-}
-
-.popoverSearch input::placeholder {
-  color: var(--mantine-color-placeholder);
 }
 
 .popoverList {
